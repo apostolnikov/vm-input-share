@@ -1,22 +1,27 @@
 const ioHook = require('iohook');
-const fs = require('fs');
+const express = require('express');
+const http = require('http');
+const socketIO = require('socket.io');
 
-ioHook.on('mousemove', event => {
-	const commandToWrite = `MouseMove, ${event.x}, ${event.y}, 0 \n`;
-	fs.appendFile('scripts.ahk', commandToWrite, (err) => {
-		if (err) {
-			console.log(err);
-		}
-	});
+const app = express();
+const server = http.createServer(app);
+const io = socketIO(server);
+
+
+io.on('connection', socket => {
+    console.log('new user connected');
+
+    ioHook.on('keydown', click => socket.emit('message', click));
+    socket.on('disconnect', () => console.log('User was disconnected'));
 });
 
 ioHook.start();
+server.listen(3000, () => console.log('listening on PORT: ', 3000));
 
 
-// on keyPress Hook
 
-// ioHook.on('keydown', click => {
-//     console.log(click);
+
+
+
+// ioHook.on('mousemove', event => {
 // });
-
-// // Register and start hook

@@ -10,7 +10,11 @@
   "author": "Apostol Nikov",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.17.1",
     "iohook": "^0.3.1",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "robotjs": "^0.5.1",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0"
   }
 }
