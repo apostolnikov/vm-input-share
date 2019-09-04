@@ -18,15 +18,15 @@ socket.on('connect', () => {
       robot.keyTap('up');
      }
 
-     if (press.rawcode === 38) {
+     if (press.rawcode === 40) {
       robot.keyTap('down');
      }
 
-     if (press.rawcode === 38) {
+     if (press.rawcode === 39) {
       robot.keyTap('right');
      }
 
-     if (press.rawcode === 38) {
+     if (press.rawcode === 37) {
       robot.keyTap('left');
      }
 
