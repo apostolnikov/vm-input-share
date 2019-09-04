@@ -14,6 +14,22 @@ socket.on('connect', () => {
       robot.keyTap('alt');
      }
 
+     if (press.rawcode === 38) {
+      robot.keyTap('up');
+     }
+
+     if (press.rawcode === 38) {
+      robot.keyTap('down');
+     }
+
+     if (press.rawcode === 38) {
+      robot.keyTap('right');
+     }
+
+     if (press.rawcode === 38) {
+      robot.keyTap('left');
+     }
+
      if (press.rawcode === 9) {
       robot.keyTap('tab');
      }
@@ -59,9 +75,9 @@ socket.on('connect', () => {
       3: 'middle'
     };
 
-    // if (move.type === 'mousemove') {
-    //   robot.moveMouse(move.x, move.y);
-    // }
+    if (move.type === 'mousewheel') {
+      robot.scrollMouse(move.x, move.y);
+    }
 
     if (move.type === 'mousedrag') {
       robot.dragMouse(move.x, move.y);
